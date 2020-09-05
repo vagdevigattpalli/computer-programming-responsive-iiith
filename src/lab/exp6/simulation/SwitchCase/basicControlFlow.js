@@ -231,6 +231,8 @@ window.view = {
 	 		}
 	 	}
 		if ( model.inputNumber > 7 ) {
+			if ( model.inputNumber > 7 ||model.inputNumber ===0){
+			
 	 		if (this.nextSiblingElement.id === 'holidayId')
 				this.codeExecutionWithColourAndId('elseIfId');
 	 		else if (this.nextSiblingElement.id === 'workingdayId') 
