@@ -51,6 +51,8 @@ window.view = {
 		this.addClickEvent('btnOk', function() { view.proceedToStartButton() })
 		this.addClickEvent('btnStart', function() { view.displayElements() })
 		this.addClickEvent('btnNext', function() { view.sortArray() })
+		this.addClickEvent('btnRandom',function(){document.getElementById('userInput').disabled=true;})
+		this.addClickEvent('btnManual',function(){document.getElementById('userInput').disabled=false;})
 	},
 	proceedToStartButton: function() {
 		var userInput = this.getArraySize()
