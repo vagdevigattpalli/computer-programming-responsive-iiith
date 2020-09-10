@@ -292,6 +292,8 @@ window.view = {
 		} 
 		else if (valueA2 >= valueB2 || valueB2 > 30) {
 			alert('Integration Limits are from 0 to 30, b > a and b-a >= 1');
+			else if (valueA2 >= valueB2 || valueB2 > 10) {
+			alert('Integration Limits are from 0 to 10, b > a and b-a >= 1');
 			return false;
 		}
 		else {
