@@ -35,6 +35,7 @@ window.view = {
 	getInput: function() {
 		var inputValue = document.getElementById('simpleLoopInput').value
 		model.inp = Number(inputValue)
+		if(model.inp>20 && model.inp)
 		this.clearExecutionSection()
 	},
 	getNestedInput: function() {
@@ -162,22 +163,34 @@ window.view = {
 		document.getElementById('nestedlocalVariableI').innerHTML = ''
     	document.getElementById('nestedlocalVariableJ').innerHTML = ''
 	},
+	valid: function(a){
+		a=Number(a)
+		if(a<0 || a>20){
+			return false;
+		}else{
+			return true;
+		}
+	},
     startBtn: function() {
     	this.getInput()
     	this.clearDivs()
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
-		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
+			if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) ) && this.valid(inputValue))
 		{
 			this.displayLoop('forLoopContent', 'codeContentFor1')
 		}
-		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
+			if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp)) && this.valid(inputValue))
 		{
 			this.displayLoop('whileLoopContent', 'codeContentWhile1')
 		}
-		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
+			if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp)) && this.valid(inputValue))
 		{
 		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
+		}
+	     else{
+			alert("Invalid Input")
+			return;
 		}
 		this.disableButton('btnStart')
 		this.changeClass( 'btnStart', 'buttonDisable startButton')
